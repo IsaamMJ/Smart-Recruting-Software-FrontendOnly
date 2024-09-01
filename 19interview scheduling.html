@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Scheduling Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1542744173-8b0d62db60ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGJ1c2luZXNzIGxvZ29pfGVufDB8fDE2NTI5ODMyNz&ixlib=rb-1.2.1&q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard-container {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        .dashboard-container h1 {
+            color: #ff5f6d;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            background: -webkit-linear-gradient(#ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .summary {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .summary div {
+            background-color: #ff5f6d;
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            width: 48%;
+            text-align: center;
+        }
+        .summary div:nth-child(2) {
+            background-color: #ffc371;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th,
+        table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table th {
+            background-color: #ff5f6d;
+            color: #fff;
+        }
+        table td {
+            background-color: #fff;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .actions {
+            text-align: center;
+        }
+        .actions button {
+            background-color: #ff5f6d;
+            border: none;
+            color: #fff;
+            padding: 8px 12px;
+            margin: 2px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .actions button:hover {
+            background-color: #ffc371;
+        }
+        .actions .cancel-button {
+            background-color: #e74c3c;
+        }
+        .actions .cancel-button:hover {
+            background-color: #c0392b;
+        }
+        .actions .reschedule-button {
+            background-color: #f39c12;
+        }
+        .actions .reschedule-button:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1>Interview Scheduling Dashboard</h1>
+        
+        <div class="summary">
+            <div>
+                <h2>Upcoming Interviews</h2>
+                <p>12</p> <!-- Placeholder for dynamic content -->
+            </div>
+            <div>
+                <button class="schedule-button">Schedule New Interview</button>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Applicant Name</th>
+                    <th>Job Title</th>
+                    <th>Interview Date</th>
+                    <th>Interview Time</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample data rows -->
+                <tr>
+                    <td>Jane Doe</td>
+                    <td>Software Engineer</td>
+                    <td>2024-09-10</td>
+                    <td>10:00 AM</td>
+                    <td>Scheduled</td>
+                    <td class="actions">
+                        <button class="view-button">View</button>
+                        <button class="reschedule-button">Reschedule</button>
+                        <button class="cancel-button">Cancel</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>John Smith</td>
+                    <td>Marketing Manager</td>
+                    <td>2024-09-12</td>
+                    <td>2:00 PM</td>
+                    <td>Scheduled</td>
+                    <td class="actions">
+                        <button class="view-button">View</button>
+                        <button class="reschedule-button">Reschedule</button>
+                        <button class="cancel-button">Cancel</button>
+                    </td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

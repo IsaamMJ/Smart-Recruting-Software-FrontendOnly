@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Categories Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1542744173-8b0d62db60ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGJ1c2luZXNzIGxvZ29pfGVufDB8fDE2NTI5ODMyNz&ixlib=rb-1.2.1&q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black backdrop */
+            z-index: 1; /* Ensure the backdrop is behind the container */
+        }
+        .categories-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 1000px;
+            z-index: 2; /* Ensure the container is above the backdrop */
+        }
+        .categories-container h2 {
+            color: #5d9bfc;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            background: -webkit-linear-gradient(#5d9bfc, #6ab2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="text"] {
+            background-color: #fff;
+        }
+        .form-group select {
+            background-color: #f4f4f4;
+        }
+        .add-category-btn {
+            background-color: #5d9bfc;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+        }
+        .add-category-btn:hover {
+            background-color: #6ab2ff;
+            transform: scale(1.05);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th,
+        table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+            transition: background-color 0.3s ease;
+        }
+        table th {
+            background-color: #5d9bfc;
+            color: #fff;
+        }
+        table td {
+            background-color: #fff;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        table tr:hover {
+            background-color: #e3f2fd;
+        }
+        .actions {
+            text-align: center;
+        }
+        .actions button {
+            background-color: #5d9bfc;
+            border: none;
+            color: #fff;
+            padding: 8px 12px;
+            margin: 2px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .actions button:hover {
+            background-color: #6ab2ff;
+            transform: scale(1.05);
+        }
+        .actions .delete-button {
+            background-color: #e74c3c;
+        }
+        .actions .delete-button:hover {
+            background-color: #c0392b;
+        }
+        .actions .edit-button {
+            background-color: #f39c12;
+        }
+        .actions .edit-button:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="backdrop"></div>
+    <div class="categories-container">
+        <h2>Job Categories Management</h2>
+        <div class="form-group">
+            <label for="category-type">Category Type</label>
+            <select id="category-type" required>
+                <option value="">Select category type</option>
+                <option value="Department">Department</option>
+                <option value="Location">Location</option>
+                <option value="Employment Type">Employment Type</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="category-name">Category Name</label>
+            <input type="text" id="category-name" placeholder="Enter the category name" required>
+        </div>
+        <button class="add-category-btn">Add Category</button>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Category Type</th>
+                    <th>Category Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample data rows -->
+                <tr>
+                    <td>Department</td>
+                    <td>Engineering</td>
+                    <td class="actions">
+                        <button class="edit-button">Edit</button>
+                        <button class="delete-button">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>New York</td>
+                    <td class="actions">
+                        <button class="edit-button">Edit</button>
+                        <button class="delete-button">Delete</button>
+                    </td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

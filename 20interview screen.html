@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Scheduling</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1542744173-8b0d62db60ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGJ1c2luZXNzIGxvZ29pfGVufDB8fDE2NTI5ODMyNz&ixlib=rb-1.2.1&q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        .scheduling-container {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        .scheduling-container h1 {
+            color: #ff5f6d;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            background: -webkit-linear-gradient(#ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group select,
+        .form-group input[type="date"],
+        .form-group input[type="time"],
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group input[type="text"] {
+            display: none;
+        }
+        .form-group input[type="text"].visible {
+            display: block;
+        }
+        .form-group button {
+            background-color: #ff5f6d;
+            border: none;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .form-group button:hover {
+            background-color: #ffc371;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scheduling-container">
+        <h1>Schedule an Interview</h1>
+        <div class="form-group">
+            <label for="applicant-name">Applicant Name</label>
+            <select id="applicant-name" required>
+                <option value="" disabled selected>Select applicant</option>
+                <!-- Options populated dynamically -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="job-title">Job Title</label>
+            <select id="job-title" required>
+                <option value="" disabled selected>Select job title</option>
+                <!-- Options populated dynamically -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="interview-date">Interview Date</label>
+            <input type="date" id="interview-date" required>
+        </div>
+        <div class="form-group">
+            <label for="interview-time">Interview Time</label>
+            <input type="time" id="interview-time" required>
+        </div>
+        <div class="form-group">
+            <label for="interviewers">Interviewers</label>
+            <select id="interviewers" multiple required>
+                <!-- Options populated dynamically -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="interview-mode">Interview Mode</label>
+            <select id="interview-mode" required>
+                <option value="" disabled selected>Select interview mode</option>
+                <option value="In-Person">In-Person</option>
+                <option value="Video Call">Video Call</option>
+                <option value="Phone Call">Phone Call</option>
+                <option value="Teams Call">Teams Call</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="interview-location" class="location-label">Interview Location</label>
+            <input type="text" id="interview-location" placeholder="Enter interview location">
+        </div>
+        <div class="form-group">
+            <button id="schedule-interview">Schedule Interview</button>
+        </div>
+    </div>
+
+    <script>
+        // Show/Hide Interview Location based on Interview Mode
+        document.getElementById('interview-mode').addEventListener('change', function() {
+            const locationField = document.getElementById('interview-location');
+            if (this.value === 'In-Person') {
+                locationField.classList.add('visible');
+            } else {
+                locationField.classList.remove('visible');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Creation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1569306992-4fc8db1e40d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGJ1c2luZXNzIGxvZ29pfGVufDB8fDE2NTMwNzUzNz&ixlib=rb-1.2.1&q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .form-creation-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 900px;
+            margin: 20px;
+            z-index: 2;
+        }
+        .form-creation-container h2 {
+            color: #ff5f6d;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            background: -webkit-linear-gradient(#ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+        .form-creation-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-creation-container input, 
+        .form-creation-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-creation-container button {
+            background-color: #ff5f6d;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-right: 10px;
+        }
+        .form-creation-container button:hover {
+            background-color: #ffc371;
+            transform: scale(1.05);
+        }
+        .field-list-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .field-list-table th,
+        .field-list-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .field-list-table th {
+            background-color: #ff5f6d;
+            color: #fff;
+        }
+        .field-list-table td {
+            background-color: #fff;
+        }
+        .field-list-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .actions {
+            text-align: center;
+        }
+        .actions button {
+            background-color: #ff5f6d;
+            border: none;
+            color: #fff;
+            padding: 8px 12px;
+            margin: 2px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .actions button:hover {
+            background-color: #ffc371;
+        }
+        .actions .delete-button {
+            background-color: #e74c3c;
+        }
+        .actions .delete-button:hover {
+            background-color: #c0392b;
+        }
+        .add-field-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 500px;
+            z-index: 3;
+        }
+        .add-field-modal h3 {
+            margin-top: 0;
+        }
+        .add-field-modal input, 
+        .add-field-modal select {
+            margin-bottom: 10px;
+        }
+        .add-field-modal button {
+            background-color: #ff5f6d;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .add-field-modal button:hover {
+            background-color: #ffc371;
+        }
+        .add-field-modal .close-button {
+            background-color: #e74c3c;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .add-field-modal .close-button:hover {
+            background-color: #c0392b;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="backdrop"></div>
+    <div class="form-creation-container">
+        <h2>Create New Form</h2>
+        <label for="formName">Form Name</label>
+        <input type="text" id="formName" placeholder="Enter the form name" required>
+
+        <label for="associatedJob">Associated Job</label>
+        <select id="associatedJob" required>
+            <option value="">Select a job</option>
+            <option value="software_engineer">Software Engineer</option>
+            <option value="marketing_manager">Marketing Manager</option>
+        </select>
+
+        <button id="addFieldBtn">Add Field</button>
+
+        <table class="field-list-table">
+            <thead>
+                <tr>
+                    <th>Field Name</th>
+                    <th>Field Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <button id="saveFormBtn">Save Form</button>
+    </div>
+
+    <div class="add-field-modal" id="addFieldModal">
+        <button class="close-button" id="closeModalBtn">X</button>
+        <h3>Add New Field</h3>
+        <label for="fieldName">Field Name</label>
+        <input type="text" id="fieldName" placeholder="Enter the field name" required>
+
+        <label for="fieldType">Field Type</label>
+        <select id="fieldType" required>
+            <option value="">Select field type</option>
+            <option value="textbox">Textbox</option>
+            <option value="dropdown">Dropdown</option>
+            <option value="checkbox">Checkbox</option>
+            <option value="radio">Radio Button</option>
+            <option value="date">Date Picker</option>
+        </select>
+
+        <div id="fieldOptionsContainer" class="hidden">
+            <label for="fieldOptions">Field Options</label>
+            <input type="text" id="fieldOptions" placeholder="Enter options separated by commas">
+        </div>
+
+        <button id="saveFieldBtn">Add Field</button>
+    </div>
+
+    <script>
+        // Variables for modal functionality
+        const addFieldBtn = document.getElementById('addFieldBtn');
+        const addFieldModal = document.getElementById('addFieldModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const fieldTypeSelect = document.getElementById('fieldType');
+        const fieldOptionsContainer = document.getElementById('fieldOptionsContainer');
+        const saveFieldBtn = document.getElementById('saveFieldBtn');
+        const fieldNameInput = document.getElementById('fieldName');
+        const fieldOptionsInput = document.getElementById('fieldOptions');
+        const fieldListTable = document.querySelector('.field-list-table tbody');
+
+        // Show modal on button click
+        addFieldBtn.addEventListener('click', () => {
+            addFieldModal.style.display = 'block';
+        });
+
+        // Close modal on button click
+        closeModalBtn.addEventListener('click', () => {
+            addFieldModal.style.display = 'none';
+        });
+
+        // Show or hide the Field Options input based on Field Type selection
+        fieldTypeSelect.addEventListener('change', () => {
+            const selectedType = fieldTypeSelect.value;
+            if (selectedType === 'dropdown' || selectedType === 'checkbox' || selectedType === 'radio') {
+                fieldOptionsContainer.classList.remove('hidden');
+                fieldOptionsInput.required = true;
+            } else {
+                fieldOptionsContainer.classList.add('hidden');
+                fieldOptionsInput.required = false;
+            }
+        });
+
+        // Add new field to the form
+        saveFieldBtn.addEventListener('click', () => {
+            const fieldName = fieldNameInput.value.trim();
+            const fieldType = fieldTypeSelect.value;
+            const fieldOptions = fieldOptionsInput.value.trim();
+
+            // Simple validation
+            if (!fieldName || !fieldType || (fieldOptionsContainer.classList.contains('hidden') === false && !fieldOptions)) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Add the field to the Field List Table
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${fieldName}</td>
+                <td>${fieldType}</td>
+                <td class="actions">
+                    <button class="edit-button">Edit</button>
+                    <button class="delete-button">Delete</button>
+                </td>
+            `;
+            fieldListTable.appendChild(row);
+
+            // Close the modal and reset fields
+            addFieldModal.style.display = 'none';
+            fieldNameInput.value = '';
+            fieldTypeSelect.value = '';
+            fieldOptionsInput.value = '';
+            fieldOptionsContainer.classList.add('hidden');
+        });
+    </script>
+
+</body>
+</html>

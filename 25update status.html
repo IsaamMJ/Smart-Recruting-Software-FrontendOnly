@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Status</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .update-status-container {
+            padding: 20px;
+        }
+        .section {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 22px;
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .section p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .save-status-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+        }
+        .save-status-button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="update-status-container">
+        <!-- Update Status Section -->
+        <div class="section update-status">
+            <h2>Update Status</h2>
+            <p><strong>Current Status:</strong> In Review</p>
+
+            <div class="form-group">
+                <label for="new-status">New Status</label>
+                <select id="new-status" name="new-status" required>
+                    <option value="" disabled selected>Select new status</option>
+                    <option value="New">New</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Hired">Hired</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" placeholder="Enter any notes"></textarea>
+            </div>
+
+            <button class="save-status-button" type="submit">Save Status</button>
+        </div>
+    </div>
+</body>
+</html>

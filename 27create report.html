@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Report</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        .section {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        .form-group input[type="checkbox"] + label {
+            display: inline;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+        }
+        .button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Report Information Section -->
+        <div class="section">
+            <h2>Report Information</h2>
+            <div class="form-group">
+                <label for="report-name">Report Name</label>
+                <input type="text" id="report-name" placeholder="Enter report name" required>
+            </div>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="section">
+            <h2>Filters</h2>
+            <div class="form-group">
+                <label for="date-range">Date Range</label>
+                <input type="text" id="date-range" placeholder="Select date range" required>
+            </div>
+            <div class="form-group">
+                <label for="status">Application Status</label>
+                <select id="status">
+                    <option value="">Select status</option>
+                    <option value="new">New</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="hired">Hired</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="position">Position</label>
+                <select id="position">
+                    <option value="">Select position</option>
+                    <!-- Add options dynamically -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="source">Source</label>
+                <select id="source">
+                    <option value="">Select source</option>
+                    <option value="job-board">Job Board</option>
+                    <option value="referral">Referral</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Fields to Include Section -->
+        <div class="section">
+            <h2>Fields to Include</h2>
+            <div class="form-group">
+                <label>Fields to Include</label>
+                <div>
+                    <input type="checkbox" id="applicant-name">
+                    <label for="applicant-name">Applicant Name</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="date-applied">
+                    <label for="date-applied">Date Applied</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="status-field">
+                    <label for="status-field">Status</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="source-field">
+                    <label for="source-field">Source</label>
+                </div>
+                <!-- Add more fields as needed -->
+            </div>
+        </div>
+
+        <!-- Actions Section -->
+        <div class="section">
+            <button class="button">Generate Report</button>
+        </div>
+    </div>
+</body>
+</html>

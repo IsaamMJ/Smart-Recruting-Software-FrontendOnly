@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1542744173-8b0d62db60ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGJ1c2luZXNzIGxvZ29pfGVufDB8fDE2NTI5ODMyNz&ixlib=rb-1.2.1&q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black backdrop */
+            z-index: 1; /* Ensure the backdrop is behind the container */
+        }
+        .form-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 800px;
+            z-index: 2; /* Ensure the container is above the backdrop */
+        }
+        .form-container h2 {
+            color: #ff5f6d;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            background: -webkit-linear-gradient(#ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-container input, 
+        .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-container button {
+            background-color: #ff5f6d;
+            border: none;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .form-container button:hover {
+            background-color: #ffc371;
+        }
+        .field-options {
+            display: none; /* Hidden by default */
+        }
+        .field-list-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .field-list-table th, 
+        .field-list-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .field-list-table th {
+            background-color: #ff5f6d;
+            color: #fff;
+        }
+        .field-list-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        /* Modal specific styles */
+        .add-field-modal {
+            display: none; /* Hidden initially */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 3;
+        }
+        .close-button {
+            float: right;
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="backdrop"></div>
+    <div class="form-container">
+        <h2>Edit Form</h2>
+        
+        <label for="formName">Form Name</label>
+        <input type="text" id="formName" placeholder="Enter the form name" required>
+
+        <label for="associatedJob">Associated Job</label>
+        <select id="associatedJob" required>
+            <option value="">Select a job</option>
+            <!-- Options populated dynamically -->
+        </select>
+
+        <div class="form-fields">
+            <h3>Form Fields</h3>
+            <button id="addFieldBtn">Add Field</button>
+            <table class="field-list-table">
+                <thead>
+                    <tr>
+                        <th>Field Name</th>
+                        <th>Field Type</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="fieldList">
+                    <!-- Fields populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+
+        <button id="saveFormBtn">Save Form</button>
+    </div>
+
+    <!-- Add Field Modal -->
+    <div class="add-field-modal" id="addFieldModal">
+        <button class="close-button" id="closeModalBtn">X</button>
+        <h3>Add New Field</h3>
+        
+        <label for="fieldName">Field Name</label>
+        <input type="text" id="fieldName" placeholder="Enter the field name" required>
+        
+        <label for="fieldType">Field Type</label>
+        <select id="fieldType" required>
+            <option value="">Select field type</option>
+            <option value="textbox">Textbox</option>
+            <option value="dropdown">Dropdown</option>
+            <option value="checkbox">Checkbox</option>
+            <option value="radio">Radio Button</option>
+            <option value="date">Date Picker</option>
+        </select>
+        
+        <div class="field-options" id="fieldOptionsDiv">
+            <label for="fieldOptions">Field Options</label>
+            <input type="text" id="fieldOptions" placeholder="Enter options separated by commas">
+        </div>
+
+        <button id="addFieldToFormBtn">Add Field</button>
+    </div>
+
+    <script>
+        // Modal functionality
+        const addFieldBtn = document.getElementById('addFieldBtn');
+        const addFieldModal = document.getElementById('addFieldModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const fieldTypeDropdown = document.getElementById('fieldType');
+        const fieldOptionsDiv = document.getElementById('fieldOptionsDiv');
+        const addFieldToFormBtn = document.getElementById('addFieldToFormBtn');
+        const fieldList = document.getElementById('fieldList');
+
+        // Open the modal when 'Add Field' button is clicked
+        addFieldBtn.addEventListener('click', () => {
+            addFieldModal.style.display = 'block';
+        });
+
+        // Close the modal when 'X' button is clicked
+        closeModalBtn.addEventListener('click', () => {
+            addFieldModal.style.display = 'none';
+        });
+
+        // Show/hide the field options input based on the selected field type
+        fieldTypeDropdown.addEventListener('change', () => {
+            const selectedType = fieldTypeDropdown.value;
+            if (['dropdown', 'checkbox', 'radio'].includes(selectedType)) {
+                fieldOptionsDiv.style.display = 'block';
+            } else {
+                fieldOptionsDiv.style.display = 'none';
+            }
+        });
+
+        // Add the new field to the list when 'Add Field' button is clicked in the modal
+        addFieldToFormBtn.addEventListener('click', () => {
+            const fieldName = document.getElementById('fieldName').value.trim();
+            const fieldType = fieldTypeDropdown.value;
+            const fieldOptions = document.getElementById('fieldOptions').value.trim();
+            
+            // Validate the input
+            if (!fieldName || !fieldType || (['dropdown', 'checkbox', 'radio'].includes(fieldType) && !fieldOptions)) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            // Create a new row for the table
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${fieldName}</td>
+                <td>${fieldType}</td>
+                <td>
+                    <button class="edit-field-btn">Edit</button>
+                    <button class="delete-field-btn">Delete</button>
+                </td>
+            `;
+            fieldList.appendChild(row);
+            addFieldModal.style.display = 'none';
+
+            // Reset the modal fields
+            document.getElementById('fieldName').value = '';
+            fieldTypeDropdown.value = '';
+            document.getElementById('fieldOptions').value = '';
+            fieldOptionsDiv.style.display = 'none';
+        });
+
+        // Sample code for handling form save (details would need to be implemented)
+        document.getElementById('saveFormBtn').addEventListener('click', () => {
+            const formName = document.getElementById('formName').value;
+            const associatedJob = document.getElementById('associatedJob').value;
+            if (formName && associatedJob) {
+                // Logic to save the form details and fields
+                alert('Form details saved successfully!');
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+    </script>
+
+</body>
+</html>

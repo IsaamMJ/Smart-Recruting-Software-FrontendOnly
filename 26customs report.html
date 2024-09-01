@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Reports Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard-container {
+            padding: 20px;
+        }
+        .header-section {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-section h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+        .create-report-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+        }
+        .create-report-button:hover {
+            opacity: 0.8;
+        }
+        .saved-reports-section {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .saved-reports-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .saved-reports-table th, .saved-reports-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .saved-reports-table th {
+            background-color: #f2f2f2;
+        }
+        .actions-button {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+        .actions-button:hover {
+            opacity: 0.8;
+        }
+        .delete-button {
+            background: #dc3545;
+        }
+        .delete-button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <h1>Custom Reports</h1>
+            <button class="create-report-button">Create New Report</button>
+        </div>
+
+        <!-- Saved Reports Section -->
+        <div class="saved-reports-section">
+            <table class="saved-reports-table">
+                <thead>
+                    <tr>
+                        <th>Report Name</th>
+                        <th>Date Created</th>
+                        <th>Created By</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Annual Recruitment Report</td>
+                        <td>2024-09-01</td>
+                        <td>Admin</td>
+                        <td>
+                            <button class="actions-button">View</button>
+                            <button class="actions-button">Edit</button>
+                            <button class="actions-button delete-button">Delete</button>
+                            <button class="actions-button">Export</button>
+                        </td>
+                    </tr>
+                    <!-- Repeat <tr> for each saved report -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

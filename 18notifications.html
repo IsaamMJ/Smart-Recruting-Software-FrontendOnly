@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1542744173-8b0d62db60ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGJ1c2luZXNzIGxvZ29pfGVufDB8fDE2NTI5ODMyNz&ixlib=rb-1.2.1&q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        .notifications-container {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            margin: 20px auto;
+        }
+        .notifications-container h1 {
+            color: #ff5f6d;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            background: -webkit-linear-gradient(#ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th,
+        table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table th {
+            background-color: #ff5f6d;
+            color: #fff;
+        }
+        table td {
+            background-color: #fff;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .actions {
+            text-align: center;
+        }
+        .actions button {
+            background-color: #ff5f6d;
+            border: none;
+            color: #fff;
+            padding: 8px 12px;
+            margin: 2px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .actions button:hover {
+            background-color: #ffc371;
+        }
+        .actions .delete-button {
+            background-color: #e74c3c;
+        }
+        .actions .delete-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="notifications-container">
+        <h1>Notifications</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Notification Message</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample data rows -->
+                <tr>
+                    <td>New job posting created</td>
+                    <td>2024-08-30</td>
+                    <td class="actions">
+                        <button class="mark-as-read-button">Mark as Read</button>
+                        <button class="delete-button">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Application status updated</td>
+                    <td>2024-08-31</td>
+                    <td class="actions">
+                        <button class="mark-as-read-button">Mark as Read</button>
+                        <button class="delete-button">Delete</button>
+                    </td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

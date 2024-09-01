@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Creation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1542744173-8b0d62db60ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGJ1c2luZXNzIGxvZ29pfGVufDB8fDE2NTI5ODMyNz&ixlib=rb-1.2.1&q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black backdrop */
+            z-index: 1; /* Ensure the backdrop is behind the container */
+        }
+        .job-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+            z-index: 2; /* Ensure the container is above the backdrop */
+        }
+        .job-container h2 {
+            color: #ff5f6d;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            background: -webkit-linear-gradient(#ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            border: 1px solid #ff5f6d;
+            font-size: 16px;
+            color: #333;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #ffc371;
+            outline: none;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .form-group input[type="submit"] {
+            width: 48%;
+            padding: 12px;
+            background-color: #ff5f6d;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #ffc371;
+        }
+        .form-group .button-secondary {
+            background-color: #ccc;
+            color: #333;
+        }
+        .form-group .button-secondary:hover {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="backdrop"></div>
+    <div class="job-container">
+        <h2>Create Job Posting</h2>
+        <form id="job-form">
+            <div class="form-group">
+                <label for="job-title">Job Title</label>
+                <input type="text" id="job-title" name="job-title" placeholder="Enter the job title" required>
+            </div>
+            <div class="form-group">
+                <label for="job-description">Job Description</label>
+                <textarea id="job-description" name="job-description" placeholder="Enter the job description" required minlength="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                    <option value="" disabled selected>Select a department</option>
+                    <option value="HR">HR</option>
+                    <option value="IT">IT</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="job-location">Job Location</label>
+                <input type="text" id="job-location" name="job-location" placeholder="Enter the job location" required>
+            </div>
+            <div class="form-group">
+                <label for="employment-type">Employment Type</label>
+                <select id="employment-type" name="employment-type" required>
+                    <option value="" disabled selected>Select employment type</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Contract">Contract</option>
+                    <option value="Internship">Internship</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="salary-range">Salary Range</label>
+                <input type="text" id="salary-range" name="salary-range" placeholder="Enter the salary range" required>
+            </div>
+            <div class="form-group">
+                <label for="application-deadline">Application Deadline</label>
+                <input type="date" id="application-deadline" name="application-deadline" required>
+            </div>
+            <div class="form-group">
+                <label for="required-qualifications">Required Qualifications</label>
+                <textarea id="required-qualifications" name="required-qualifications" placeholder="Enter the required qualifications" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="preferred-qualifications">Preferred Qualifications</label>
+                <textarea id="preferred-qualifications" name="preferred-qualifications" placeholder="Enter the preferred qualifications"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="responsibilities">Responsibilities</label>
+                <textarea id="responsibilities" name="responsibilities" placeholder="Enter the job responsibilities" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save as Draft" class="button-secondary">
+                <input type="submit" value="Publish">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

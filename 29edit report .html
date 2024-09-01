@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Report</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+        .form-group select {
+            height: 40px;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Report Information Section -->
+        <div class="section">
+            <h2>Edit Report</h2>
+            <div class="form-group">
+                <label for="report-name">Report Name</label>
+                <input type="text" id="report-name" placeholder="Enter report name" value="Sales Report Q1 2024">
+            </div>
+            <div class="form-group">
+                <label for="date-range">Date Range</label>
+                <input type="text" id="date-range" placeholder="Select date range" value="2024-01-01 to 2024-03-31">
+            </div>
+            <div class="form-group">
+                <label for="status">Application Status</label>
+                <select id="status">
+                    <option value="" disabled>Select status</option>
+                    <option value="New" selected>New</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Hired">Hired</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="position">Position</label>
+                <select id="position">
+                    <option value="" disabled>Select position</option>
+                    <option value="Software Engineer" selected>Software Engineer</option>
+                    <option value="Product Manager">Product Manager</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="source">Source</label>
+                <select id="source">
+                    <option value="" disabled>Select source</option>
+                    <option value="Job Board" selected>Job Board</option>
+                    <option value="Referral">Referral</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fields">Fields to Include</label>
+                <select id="fields" multiple>
+                    <option value="Applicant Name" selected>Applicant Name</option>
+                    <option value="Position" selected>Position</option>
+                    <option value="Date Applied" selected>Date Applied</option>
+                    <option value="Status">Status</option>
+                    <option value="Source">Source</option>
+                </select>
+            </div>
+            <button class="button">Generate Report</button>
+        </div>
+    </div>
+</body>
+</html>

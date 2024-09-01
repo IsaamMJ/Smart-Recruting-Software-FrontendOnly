@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Creation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1516748682106-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDkxfHxqb2JfY3JlYXRpb258ZW58MHx8MTY1Mzk5ODAxMg&ixlib=rb-1.2.1&q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black backdrop */
+            z-index: 1;
+        }
+        .job-creation-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            z-index: 2;
+        }
+        .job-creation-container h2 {
+            color: #ff5f6d;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            background: -webkit-linear-gradient(#ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .form-group select {
+            background-color: #f4f4f4;
+        }
+        .form-group input[type="text"] {
+            background-color: #fff;
+        }
+        .submit-btn {
+            background-color: #ff5f6d;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background-color: #ffc371;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="backdrop"></div>
+    <div class="job-creation-container">
+        <h2>Create a Job Posting</h2>
+        <div class="form-group">
+            <label for="department">Department</label>
+            <select id="department" required>
+                <option value="">Select a department</option>
+                <!-- Options populated from Job Categories Management screen -->
+                <option value="HR">HR</option>
+                <option value="IT">IT</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Sales">Sales</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="job-location">Job Location</label>
+            <select id="job-location" required>
+                <option value="">Select a job location</option>
+                <!-- Options populated from Job Categories Management screen -->
+                <option value="New York">New York</option>
+                <option value="San Francisco">San Francisco</option>
+                <option value="Remote">Remote</option>
+                <option value="Los Angeles">Los Angeles</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="employment-type">Employment Type</label>
+            <select id="employment-type" required>
+                <option value="">Select employment type</option>
+                <!-- Options populated from Job Categories Management screen -->
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Contract">Contract</option>
+                <option value="Internship">Internship</option>
+            </select>
+        </div>
+        <!-- Additional form fields for job creation -->
+        <button class="submit-btn">Create Job Posting</button>
+    </div>
+
+</body>
+</html>

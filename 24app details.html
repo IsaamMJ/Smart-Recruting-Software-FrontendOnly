@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1542744173-8b0d62db60ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGJ1c2luZXNzIGxvZ29pfGVufDB8fDE2NTI5ODMyNz&ixlib=rb-1.2.1&q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        .details-container {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            margin: 20px auto;
+        }
+        .details-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .details-header h1 {
+            color: #ff5f6d;
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: -webkit-linear-gradient(#ff5f6d, #ffc371);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #ff5f6d;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .section p,
+        .section a {
+            font-size: 16px;
+            color: #333;
+        }
+        .section a {
+            color: #ff5f6d;
+            text-decoration: none;
+        }
+        .section a:hover {
+            text-decoration: underline;
+        }
+        .status-section,
+        .notes-section {
+            margin-top: 20px;
+        }
+        .status-section select,
+        .notes-section textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .status-section button,
+        .notes-section button {
+            background-color: #ff5f6d;
+            border: none;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        .status-section button:hover,
+        .notes-section button:hover {
+            background-color: #ffc371;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="details-container">
+        <div class="details-header">
+            <h1>Application Details</h1>
+        </div>
+
+        <div class="section applicant-info">
+            <h2>Applicant Information</h2>
+            <p><strong>Name:</strong> John Doe</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Resume:</strong> <a href="resume-link.pdf" download>Download Resume</a></p>
+        </div>
+
+        <div class="section job-info">
+            <h2>Job Information</h2>
+            <p><strong>Job Title:</strong> Software Engineer</p>
+            <p><strong>Department:</strong> IT</p>
+            <p><strong>Location:</strong> New York</p>
+        </div>
+
+        <div class="section status-section">
+            <h2>Application Status</h2>
+            <p><strong>Current Status:</strong> Applied</p>
+            <label for="statusChange">Change Status:</label>
+            <select id="statusChange">
+                <option value="">Select new status</option>
+                <option value="applied">Applied</option>
+                <option value="in-review">In Review</option>
+                <option value="interview">Interview</option>
+                <option value="offered">Offered</option>
+                <option value="rejected">Rejected</option>
+            </select>
+            <button>Save Status</button>
+        </div>
+
+        <div class="section notes-section">
+            <h2>Notes</h2>
+            <textarea id="notes" placeholder="Add notes about the application"></textarea>
+            <button>Save Notes</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard-container {
+            padding: 20px;
+        }
+        .header-section {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .header-section h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+        .date-range-picker, .refresh-button {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .date-range-picker select, .refresh-button button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .key-metrics-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .key-metrics {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+        .key-metrics h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #555;
+        }
+        .key-metrics p {
+            font-size: 36px;
+            margin: 10px 0 0;
+            color: #333;
+        }
+        .charts-section {
+            margin-bottom: 20px;
+        }
+        .charts-section h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .charts {
+            display: flex;
+            justify-content: space-between;
+        }
+        .chart {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex: 1;
+            margin: 0 10px;
+        }
+        .chart img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .detailed-metrics-section {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .detailed-metrics-section table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .detailed-metrics-section th, .detailed-metrics-section td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .detailed-metrics-section th {
+            background: #f9f9f9;
+        }
+        .detailed-metrics-section td a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .detailed-metrics-section td a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header-section">
+            <h1>Recruitment Dashboard</h1>
+            <div class="date-range-picker">
+                <label for="date-range">Date Range:</label>
+                <input type="date" id="date-range" placeholder="Select date range">
+            </div>
+            <div class="refresh-button">
+                <button id="refresh">Refresh</button>
+            </div>
+        </div>
+
+        <div class="key-metrics-section">
+            <div class="key-metrics">
+                <h3>Total Applications</h3>
+                <p>1234</p>
+            </div>
+            <div class="key-metrics">
+                <h3>Applications in Progress</h3>
+                <p>567</p>
+            </div>
+            <div class="key-metrics">
+                <h3>Hired Candidates</h3>
+                <p>89</p>
+            </div>
+            <div class="key-metrics">
+                <h3>Rejected Candidates</h3>
+                <p>45</p>
+            </div>
+        </div>
+
+        <div class="charts-section">
+            <h2>Charts</h2>
+            <div class="charts">
+                <div class="chart">
+                    <h3>Applications Over Time</h3>
+                    <img src="https://via.placeholder.com/500x300" alt="Applications Over Time Chart">
+                </div>
+                <div class="chart">
+                    <h3>Applications by Source</h3>
+                    <img src="https://via.placeholder.com/500x300" alt="Applications by Source Chart">
+                </div>
+                <div class="chart">
+                    <h3>Applications by Status</h3>
+                    <img src="https://via.placeholder.com/500x300" alt="Applications by Status Chart">
+                </div>
+            </div>
+        </div>
+
+        <div class="detailed-metrics-section">
+            <h2>Detailed Metrics</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Applicant Name</th>
+                        <th>Position</th>
+                        <th>Source</th>
+                        <th>Date Applied</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Software Engineer</td>
+                        <td>LinkedIn</td>
+                        <td>2024-08-15</td>
+                        <td>In Progress</td>
+                        <td><a href="#">View Details</a></td>
+                    </tr>
+                    <!-- Additional rows here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
